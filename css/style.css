@@ -4,12 +4,13 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 /* 头部样式 */
 header {
-    background-color: #333;
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
     padding: 2rem;
@@ -22,7 +23,7 @@ header:hover {
 
 /* 导航栏样式 */
 nav {
-    background-color: #444;
+    background-color: var(--secondary-color);
     padding: 1rem;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -53,7 +54,7 @@ nav a:hover {
 
 /* 博客文章样式 */
 .blog-post {
-    background: white;
+    background: var(--card-bg);
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -76,6 +77,26 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
+/* 主题切换器样式 */
+.theme-switcher {
+    display: inline-block;
+    margin-right: 20px;
+    color: white;
+}
+
+.theme-switcher select {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #666;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+}
+
+.theme-switcher select:hover {
+    background-color: #555;
+}
+
 /* 页脚样式 */
 footer {
     background-color: #333;
@@ -85,6 +106,42 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* 默认主题 */
+:root {
+    --primary-color: #333;
+    --secondary-color: #444;
+    --text-color: #333;
+    --bg-color: #f4f4f4;
+    --card-bg: white;
+}
+
+/* 深色主题 */
+[data-theme="dark"] {
+    --primary-color: #1a1a1a;
+    --secondary-color: #2d2d2d;
+    --text-color: #ffffff;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+}
+
+/* 浅色主题 */
+[data-theme="light"] {
+    --primary-color: #4a90e2;
+    --secondary-color: #5a9ee2;
+    --text-color: #2c3e50;
+    --bg-color: #ffffff;
+    --card-bg: #f8f9fa;
+}
+
+/* 暖色主题 */
+[data-theme="warm"] {
+    --primary-color: #e67e22;
+    --secondary-color: #d35400;
+    --text-color: #34495e;
+    --bg-color: #fff5e6;
+    --card-bg: #ffffff;
 }
 
 /* 响应式设计 */

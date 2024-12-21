@@ -25,6 +25,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // 主题切换功能
+    const themeSelect = document.getElementById('theme-select');
+    
+    // 从本地存储加载主题
+    const savedTheme = localStorage.getItem('theme') || 'default';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeSelect.value = savedTheme;
+
+    // 监听主题选择变化
+    themeSelect.addEventListener('change', function() {
+        const selectedTheme = this.value;
+        document.documentElement.setAttribute('data-theme', selectedTheme);
+        localStorage.setItem('theme', selectedTheme);
+    });
+
     // 滚动时导航栏效果
     let lastScrollTop = 0;
     window.addEventListener('scroll', function() {
